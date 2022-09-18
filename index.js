@@ -13,10 +13,19 @@ async function homePage() {
     let url = 'https://zunaverse.io/explorer';
     const browser = await puppeteer.launch({
         headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        args: [  
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-extensions-except=/path/to/manifest/folder/',
+            '--load-extension=/path/to/manifest/folder/',
+        ],
     });
     const page = await browser.newPage();
-    await page.goto(url, { waitUntil: "domcontentloaded" });
+    await page.setExtraHTTPHeaders({
+        'Accept-Language': 'en-US,en;q=0.9'
+    });
+    await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36');
+    await page.goto(url);
     let nfts = [];
     sleep(2000);
 
