@@ -12,7 +12,7 @@ async function homePage() {
     
     let url = 'https://zunaverse.io/explorer';
     const browser = await puppeteer.launch({
-        args: [
+        'args': [
             '--no-sandbox',
             '--disable-setuid-sandbox',
         ]
