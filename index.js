@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer')
 const scraper = require('./scraper.js');
 const app = express();
 app.use(express.urlencoded({ extended: false }));
-const port = 8000;
+const port = 8000
 
 
 async function homePage() {
@@ -70,7 +70,7 @@ async function homePage() {
 }
 
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
     console.log(`listening on port ${port}`)
 });
 
