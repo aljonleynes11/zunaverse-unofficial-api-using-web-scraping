@@ -12,8 +12,7 @@ async function homePage() {
     
     let url = 'https://zunaverse.io/explorer';
     const browser = await puppeteer.launch({
-        headless: false,
-        args: ['--no-sandbox', '--disable-setuid-sandbox', '--headless'],
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: "domcontentloaded" });
