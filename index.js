@@ -11,7 +11,7 @@ const port = 8000
 async function homePage() {
     
     let url = 'https://zunaverse.io/explorer';
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
     await page.goto(url, { waitUntil: "domcontentloaded" });
     let nfts = [];
